@@ -1,11 +1,11 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 
 import { SectionView, SectionImage } from './styles';
 
 import logo from '../../assets/img/findHousesLogo.png';
-import { StatusBar } from 'react-native';
 
-const SplashScreen = () => {
+export const SplashScreen = () => {
   return (
     <SectionView>
       <StatusBar translucent backgroundColor="transparent" />
@@ -13,5 +13,3 @@ const SplashScreen = () => {
     </SectionView>
   );
 };
-
-export default SplashScreen;
