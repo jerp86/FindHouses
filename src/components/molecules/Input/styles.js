@@ -18,4 +18,5 @@ export const InputText = styled.TextInput`
   padding-left: ${({ theme }) => theme.metrics.px(16)}px;
 
   font-size: ${({ theme }) => theme.metrics.px(16)}px;
+  font-family: 'Montserrat-Regular';
 `;

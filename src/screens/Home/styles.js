@@ -23,5 +23,5 @@ export const TopContainer = styled.View`
 `;
 
 export const TitleContainer = styled.View`
-  width: 60%;
+  width: 65%;
 `;
