@@ -5,7 +5,7 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { HomeScreen } from './screens';
+import { Navigator } from './routes';
 import { theme } from './styles/theme';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     <NavigationContainer>
       <ThemeProvider theme={theme}>
         <StatusBar translucent backgroundColor={theme.colors.backgroundDark} />
-        <HomeScreen />
+        <Navigator />
       </ThemeProvider>
     </NavigationContainer>
   );
