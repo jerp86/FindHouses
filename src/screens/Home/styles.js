@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
-export const ScreenContainer = styled.View`
+export const ScreenScroll = styled.ScrollView``;
+
+export const ScreenContainer = styled.SafeAreaView`
   align-items: flex-start;
   justify-content: flex-start;
 
@@ -8,9 +10,17 @@ export const ScreenContainer = styled.View`
 
   width: 100%;
   height: 100%;
+  padding-top: ${({ theme }) => theme.metrics.px(24)}px;
+`;
 
+export const ContentContainer = styled.View`
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  background-color: ${({ theme }) => theme.colors.backgroundDark};
+
+  width: ${({ theme }) => theme.metrics.wp(100)}px;
   padding: ${({ theme }) => theme.metrics.px(24)}px;
-  padding-top: ${({ theme }) => theme.metrics.px(48)}px;
 `;
 
 export const TopContainer = styled.View`
@@ -24,4 +34,15 @@ export const TopContainer = styled.View`
 
 export const TitleContainer = styled.View`
   width: 65%;
+`;
+
+export const LoaderContainer = styled.View`
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: ${({ theme }) => theme.metrics.px(48)}px;
+`;
+
+export const Loader = styled.ActivityIndicator`
+  margin-bottom: ${({ theme }) => theme.metrics.px(16)}px;
 `;
