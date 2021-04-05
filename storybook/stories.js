@@ -4,5 +4,7 @@ import '../src/components/atoms/IconButton/index.stories';
 
 import '../src/components/molecules/Input/index.stories';
 import '../src/components/molecules/HouseCard/index.stories';
+import '../src/components/molecules/Loader/index.stories';
+import '../src/components/molecules/HouseFeatureCard/index.stories';
 
 import '../src/components/organisms/HousesList/index.stories';
