@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHightLightText,
   CardTitle,
-  DetailSectionText,
+  DetailSectionTitle,
   DetailSubTitle,
   DetailText,
   DetailTitle,
@@ -38,10 +38,10 @@ stories.add('DetailTitle', () => {
   return <DetailTitle>{value}</DetailTitle>;
 });
 
-stories.add('DetailSectionText', () => {
-  const value = text('DetailSectionText', 'Example of DetailSectionText');
+stories.add('DetailSectionTitle', () => {
+  const value = text('DetailSectionTitle', 'Example of DetailSectionTitle');
 
-  return <DetailSectionText>{value}</DetailSectionText>;
+  return <DetailSectionTitle>{value}</DetailSectionTitle>;
 });
 
 stories.add('DetailSubTitle', () => {
