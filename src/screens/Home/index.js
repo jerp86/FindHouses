@@ -2,39 +2,30 @@ import React, { useEffect, useState } from 'react';
 
 import {
   ContentContainer,
-  Loader,
-  LoaderContainer,
   ScreenContainer,
   TitleContainer,
   TopContainer,
 } from './styles';
 
-import {
-  DetailText,
-  HousesList,
-  IconButton,
-  Input,
-  Title,
-} from '../../components';
+import { HousesList, IconButton, Input, Loader, Title } from '../../components';
 import { getHousesCall } from '../../services/calls';
+import { useHousesStore } from '../../services/stores';
 
 export const HomeScreen = () => {
-  const [housesListData, setHousesListData] = useState([]);
+  const { housesList, setHousesList } = useHousesStore();
   const [loading, setLoading] = useState(true);
 
   const callGetHouses = async () => {
     const response = await getHousesCall();
-    setHousesListData(response.properties ? response.properties : []);
+    setHousesList(response.properties ? response.properties : []);
     setLoading(false);
   };
 
-  useEffect(() => {
-    callGetHouses();
-  }, []);
+  useEffect(() => callGetHouses());
 
   return (
     <ScreenContainer>
-      <HousesList data={housesListData} loading={loading}>
+      <HousesList data={housesList} loading={loading}>
         <ContentContainer>
           <TopContainer>
             <TitleContainer>
@@ -46,12 +37,7 @@ export const HomeScreen = () => {
 
           <Input label="Localização" placeholder="Digite o endereço" />
 
-          {loading && (
-            <LoaderContainer>
-              <Loader size="large" color="white" />
-              <DetailText>Carregando...</DetailText>
-            </LoaderContainer>
-          )}
+          {loading && <Loader />}
         </ContentContainer>
       </HousesList>
     </ScreenContainer>
