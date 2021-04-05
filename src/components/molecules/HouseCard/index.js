@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { CardDescription, CardHightLightText, CardTitle } from '../../atoms';
-import { formattedPrice } from '../../../utils';
-
 import {
   CardContainer,
   CarImage,
@@ -11,9 +8,27 @@ import {
   TextContainerRight,
 } from './styles';
 
-export const HouseCard = ({ imgSource, title, description, price }) => {
+import { CardDescription, CardHightLightText, CardTitle } from '../../atoms';
+import { formattedPrice } from '../../../utils';
+import { useHousesStore } from '../../../services/stores';
+
+export const HouseCard = ({
+  imgSource,
+  title,
+  description,
+  price,
+  item,
+  navigation,
+}) => {
+  const { setSelectedHouse } = useHousesStore();
+
+  const onClickItemContainer = () => {
+    setSelectedHouse(item);
+    navigation.navigate('Detail');
+  };
+
   return (
-    <CardContainer>
+    <CardContainer onPress={() => onClickItemContainer()}>
       <CarImage source={{ uri: imgSource }} />
 
       <TextContainer>
@@ -23,7 +38,9 @@ export const HouseCard = ({ imgSource, title, description, price }) => {
         </TextContainerLeft>
 
         <TextContainerRight>
-          <CardHightLightText>{formattedPrice(price)}</CardHightLightText>
+          <CardHightLightText>
+            {formattedPrice.format(price)}
+          </CardHightLightText>
         </TextContainerRight>
       </TextContainer>
     </CardContainer>

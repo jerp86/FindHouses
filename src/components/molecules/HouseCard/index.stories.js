@@ -17,20 +17,28 @@ const stories = storiesOf('HouseCard', module);
 stories.addDecorator(getStory => <Wrapper>{getStory()}</Wrapper>);
 
 stories.add('Standard', () => {
-  const img = 'https://source.unsplash.com/random/?house';
+  const imgSource = 'https://source.unsplash.com/random/?house';
   const title = 'Sale house';
   const description = text(
     'Description',
     'Description to favor the house that is for sale',
   );
   const price = number('Price', 1234.56);
+  const item = {
+    property_id: 'UNIQUE_ID',
+    imgSource,
+    title,
+    description,
+    price,
+  };
 
   return (
     <HouseCard
-      imgSource={img}
+      imgSource={imgSource}
       title={title}
       description={description}
       price={price}
+      item={item}
     />
   );
 });
