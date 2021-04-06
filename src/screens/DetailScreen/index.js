@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 
 import {
   BottomScreenContainer,
@@ -19,8 +20,14 @@ import {
 import { getHouseDetail } from '../../services/calls';
 import { formattedPrice } from '../../utils';
 import { useHousesStore } from '../../services/stores';
+import {
+  getIfHouseIsFavorite,
+  saveHouseAsFavorite,
+  removeHouseAsFavorite,
+} from '../../services/db';
 
 export const DetailScreen = ({ navigation }) => {
+  const [favorite, setFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
   const [houseDetail, setHouseDetail] = useState(null);
   const { selectedHouse } = useHousesStore();
@@ -31,7 +38,27 @@ export const DetailScreen = ({ navigation }) => {
     setLoading(false);
   };
 
-  useEffect(() => callGetHouseDetail());
+  const checkIfHouseIsFavorite = async () => {
+    const isFavorite = await getIfHouseIsFavorite(selectedHouse.property_id);
+    setFavorite(isFavorite);
+  };
+
+  const saveFavoriteHouse = async () => {
+    if (favorite) {
+      await removeHouseAsFavorite(selectedHouse.property_id);
+      Alert.alert('Imóvel removido como favorito com sucesso');
+      return setFavorite(false);
+    }
+
+    await saveHouseAsFavorite(selectedHouse.property_id);
+    Alert.alert('Imóvel salvo como favorito com sucesso');
+    return setFavorite(true);
+  };
+
+  useEffect(() => {
+    callGetHouseDetail();
+    checkIfHouseIsFavorite();
+  });
 
   return (
     <ScreenContainer>
@@ -41,7 +68,12 @@ export const DetailScreen = ({ navigation }) => {
           iconName="chevron-back"
           transparent
         />
-        <IconButton iconName="star-outline" transparent />
+        <IconButton
+          onPress={saveFavoriteHouse}
+          iconName={favorite ? 'star' : 'star-outline'}
+          transparent
+          fill={favorite}
+        />
       </ImageBackground>
 
       <BottomScreenContainer>
