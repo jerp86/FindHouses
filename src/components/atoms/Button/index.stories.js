@@ -12,5 +12,5 @@ stories.addDecorator(getStory => <Wrapper>{getStory()}</Wrapper>);
 stories.add('Standard', () => {
   const value = text('TextButton', 'Apply');
 
-  return <Button>{value}</Button>;
+  return <Button text={value} />;
 });
