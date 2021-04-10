@@ -4,11 +4,11 @@ import { InputLabel } from '../../atoms';
 
 import { InputContainer, InputText } from './styles';
 
-export const Input = ({ label, placeholder }) => {
+export const Input = ({ label, ...rest }) => {
   return (
     <InputContainer>
       <InputLabel>{label}</InputLabel>
-      <InputText placeholder={placeholder} placeholderTextColor="#AAA" />
+      <InputText placeholderTextColor="#AAA" {...rest} />
     </InputContainer>
   );
 };
