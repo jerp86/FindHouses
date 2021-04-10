@@ -4,10 +4,10 @@ import { ButtonLabel } from '../Text';
 
 import { ButtonContainer } from './styles';
 
-export const Button = ({ text }) => {
+export const Button = ({ children, ...rest }) => {
   return (
-    <ButtonContainer>
-      <ButtonLabel>{text}</ButtonLabel>
+    <ButtonContainer {...rest}>
+      <ButtonLabel>{children}</ButtonLabel>
     </ButtonContainer>
   );
 };
