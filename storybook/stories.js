@@ -6,5 +6,7 @@ import '../src/components/molecules/Input/index.stories';
 import '../src/components/molecules/HouseCard/index.stories';
 import '../src/components/molecules/Loader/index.stories';
 import '../src/components/molecules/HouseFeatureCard/index.stories';
+import '../src/components/molecules/Modal/index.stories';
 
 import '../src/components/organisms/HousesList/index.stories';
+import '../src/components/organisms/FilterModal/index.stories';
