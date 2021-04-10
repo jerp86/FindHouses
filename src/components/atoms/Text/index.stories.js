@@ -12,6 +12,7 @@ import {
   DetailText,
   DetailTitle,
   InputLabel,
+  InputSectionLabel,
   Title,
 } from './index';
 import { Wrapper } from '../Wrapper';
@@ -60,6 +61,12 @@ stories.add('InputLabel', () => {
   const value = text('InputLabel', 'Example of InputLabel');
 
   return <InputLabel>{value}</InputLabel>;
+});
+
+stories.add('InputSectionLabel', () => {
+  const value = text('InputSectionLabel', 'Example of InputSectionLabel');
+
+  return <InputSectionLabel>{value}</InputSectionLabel>;
 });
 
 stories.add('CardTitle', () => {

@@ -43,8 +43,14 @@ export const ButtonLabel = styled(BaseText)`
   font-family: 'Montserrat-Bold';
 `;
 
-export const InputLabel = styled(BaseText)`
+export const InputSectionLabel = styled(BaseText)`
   font-size: ${({ theme }) => theme.metrics.px(16)}px;
+  color: ${({ theme }) => theme.colors.white};
+  font-family: 'Montserrat-SemiBold';
+`;
+
+export const InputLabel = styled(BaseText)`
+  font-size: ${({ theme }) => theme.metrics.px(14)}px;
   color: ${({ theme }) => theme.colors.white};
   font-family: 'Montserrat-SemiBold';
 `;
